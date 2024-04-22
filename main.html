@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<ul id="band">
+<ul id="bands">
     <!-- Articles will be appended here -->
 </ul>
 
@@ -19,7 +19,7 @@ function sortBands(bands) {
     const ignoredWords = ['A', 'An', 'The'];
     return bands.sort((a, b) => {
         // Function to remove specified words and return the remaining string
-        const removeIgnoredWords = str => str.replace(/^(a|an|the)\s+/i, '');
+        const removeIgnoredWords = str => str.replace(/^(A|An|The)\s+/i, '');
         const nameA = removeIgnoredWords(a);
         const nameB = removeIgnoredWords(b);
         return nameA.localeCompare(nameB);
@@ -30,7 +30,7 @@ function sortBands(bands) {
 const sortedBands = sortBands(bands);
 
 // Get the ul element
-const bandList = document.getElementById('band');
+const bandList = document.getElementById('bands');
 
 // Iterate through sortedBands and create li elements
 sortedBands.forEach(band => {
