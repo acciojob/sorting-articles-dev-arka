@@ -16,7 +16,7 @@ const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'N
 
 // Function to sort the bands array ignoring specified words
 function sortBands(bands) {
-    const ignoredWords = ['a', 'an', 'the'];
+    const ignoredWords = ['A', 'An', 'The'];
     return bands.sort((a, b) => {
         // Function to remove specified words and return the remaining string
         const removeIgnoredWords = str => str.replace(/^(a|an|the)\s+/i, '');
