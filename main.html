@@ -1,16 +1,44 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorted Articles</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
+
+<ul id="band">
+    <!-- Articles will be appended here -->
+</ul>
+
+<script>
+const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+// Function to sort the bands array ignoring specified words
+function sortBands(bands) {
+    const ignoredWords = ['a', 'an', 'the'];
+    return bands.sort((a, b) => {
+        // Function to remove specified words and return the remaining string
+        const removeIgnoredWords = str => str.replace(/^(a|an|the)\s+/i, '');
+        const nameA = removeIgnoredWords(a);
+        const nameB = removeIgnoredWords(b);
+        return nameA.localeCompare(nameB);
+    });
+}
+
+// Sort the bands array
+const sortedBands = sortBands(bands);
+
+// Get the ul element
+const bandList = document.getElementById('band');
+
+// Iterate through sortedBands and create li elements
+sortedBands.forEach(band => {
+    const li = document.createElement('li');
+    li.textContent = band;
+    bandList.appendChild(li);
+});
 </script>
 
 </body>
-
 </html>
